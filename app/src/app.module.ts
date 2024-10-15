@@ -1,10 +1,10 @@
 import { Module } from '@nestjs/common';
-import { healthModule } from './module/health/health.module'
+import { HealthModule } from './module/health/health.module'
 
 
 @Module({
   imports: [
-    healthModule
+    HealthModule
   ],
   providers: [],
 })
