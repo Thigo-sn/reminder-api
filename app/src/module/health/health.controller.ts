@@ -4,7 +4,5 @@ import { Controller, Get } from '@nestjs/common';
 export class HealthController {
 
     @Get()
-    getAllHealth(): string {
-        return '';
-    }
+    getAllHealth() { }
 }
