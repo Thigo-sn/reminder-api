@@ -1,9 +1,9 @@
-import { Module } from '@nestjs/common';
-import { MongooseModule } from '@nestjs/mongoose';
-import { ConfigModule } from '@nestjs/config';
-import { HealthModule } from './module/health/health.module';
-import { RepositoryConfigProvider } from './repository.config.provider'
+import { Module } from '@nestjs/common'
+import { ConfigModule } from '@nestjs/config'
+import { MongooseModule } from '@nestjs/mongoose'
 
+import { HealthModule } from './module/health/health.module'
+import { RepositoryConfigProvider } from './repository.config.provider'
 
 @Module({
   imports: [
@@ -11,8 +11,9 @@ import { RepositoryConfigProvider } from './repository.config.provider'
     ConfigModule.forRoot({
       isGlobal: true
     }),
-    MongooseModule.forRootAsync({ useClass: RepositoryConfigProvider }),
-  ],
-  providers: [],
+    MongooseModule.forRootAsync({
+      useClass: RepositoryConfigProvider
+    })
+  ]
 })
-export class AppModule { }
+export class AppModule {}
