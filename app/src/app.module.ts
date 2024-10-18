@@ -7,10 +7,10 @@ import { RepositoryConfigProvider } from './repository.config.provider'
 
 @Module({
   imports: [
+    HealthModule,
     ConfigModule.forRoot({
       isGlobal: true
     }),
-    HealthModule,
     MongooseModule.forRootAsync({ useClass: RepositoryConfigProvider }),
   ],
   providers: [],
