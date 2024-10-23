@@ -1,20 +1,19 @@
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
-import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify'
+import { FastifyAdapter, NestFastifyApplication } from '@nestjs/platform-fastify';
 
-
-const application = async () => {
-  const application = await NestFactory.create<NestFastifyApplication>(
+const bootstrap = async () => {
+  const app = await NestFactory.create<NestFastifyApplication>(
     AppModule,
     new FastifyAdapter({ logger: true }),
     { cors: true }
-  )
+  );
 
+  app.setGlobalPrefix('/api');
 
-  application.setGlobalPrefix('/api')
+  await app.listen(3000);
+};
 
-  await application.listen(3000);
-
-}
-
-application();
+bootstrap().catch(err => {
+  console.error('Error starting the application', err);
+});

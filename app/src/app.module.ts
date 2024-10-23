@@ -10,10 +10,12 @@ import { UsersModule } from './module/users/users.module'
   imports: [
     HealthModule,
     ConfigModule.forRoot({
-      isGlobal: true
+      isGlobal: true,
     }),
+
     HealthModule,
     UsersModule,
+
     MongooseModule.forRootAsync({ useClass: RepositoryConfigProvider }),
   ],
   providers: [],
