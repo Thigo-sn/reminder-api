@@ -8,7 +8,6 @@ import { UsersModule } from './module/users/users.module'
 
 @Module({
   imports: [
-    HealthModule,
     ConfigModule.forRoot({
       isGlobal: true,
     }),
