@@ -12,8 +12,11 @@ import { UsersModule } from './module/users/users.module'
     ConfigModule.forRoot({
       isGlobal: true
     }),
+<<<<<<< HEAD
+=======
     HealthModule,
     UsersModule,
+>>>>>>> 5a8147d (Api_User)
     MongooseModule.forRootAsync({ useClass: RepositoryConfigProvider }),
   ],
   providers: [],
