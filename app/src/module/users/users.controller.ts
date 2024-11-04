@@ -1,18 +1,29 @@
-import { Body, Controller, Get, Post } from '@nestjs/common';
-import { UsersService } from './users.service';
-import { User } from './repository/user.schema';
+import { Body, Controller, Get, HttpCode, HttpStatus, Param, Post, Put, Query } from '@nestjs/common'
 
-@Controller('users')
-export class UsersController {
-    constructor(private readonly usersService: UsersService) { }
+import { UserToken } from '@/module/type/auth.type'
 
-    @Post()
-    async create(@Body('name') name: string): Promise<User> {
-        return this.usersService.create(name);
-    }
+import { UserProvider } from './provider'
+import { ListUserRequest, SaveUserRequest } from './users.request'
+import { UserResponse } from './user.response'
 
-    @Get()
-    async findAll(): Promise<User[]> {
-        return this.usersService.findAll();
-    }
+@Controller('user')
+export class UserController {
+  constructor(private readonly provider: UserProvider) { }
+
+  @Get(':id')
+  get(@Param('id') id: string): Promise<UserResponse> {
+    return this.provider.get.run(id)
+  }
+
+  @Get('current')
+  current(): Promise<UserResponse> {
+    return this.provider.current.run()
+  }
+
+  @Get()
+  list(@Query() request: ListUserRequest): Promise<UserResponse[]> {
+    return this.provider.list.run(request)
+  }
+
 }
+
