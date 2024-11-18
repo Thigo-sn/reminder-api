@@ -14,10 +14,6 @@ export class ContactRequest {
     @IsEmail()
     readonly mail: string
 
-    @IsPhoneNumber('BR')
-    @IsOptional()
-    readonly phone?: string
-
     @IsString()
     @MaxLength(20)
     @IsOptional()

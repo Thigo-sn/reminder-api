@@ -4,6 +4,7 @@ import { ConfigModule } from '@nestjs/config';
 
 import { HealthModule } from './module/health/health.module';
 import { UserModule } from './module/users/users.module'
+import { PostModule } from "./module/post/post.module"
 
 import { RepositoryConfigProvider } from './repository.config.provider'
 
@@ -16,6 +17,7 @@ import { RepositoryConfigProvider } from './repository.config.provider'
 
     HealthModule,
     UserModule,
+    PostModule,
 
     MongooseModule.forRootAsync({ useClass: RepositoryConfigProvider }),
   ],

@@ -6,16 +6,6 @@ import { Role } from '../type/role.enum'
 
 export type UserDocument = HydratedDocument<User>
 
-export class Contact {
-    @Prop({ type: String, required: true })
-    mail: string
-
-    @Prop({ type: String })
-    phone?: string
-
-    @Prop({ type: String })
-    social?: string
-}
 
 @Schema({
     id: true,
@@ -28,16 +18,6 @@ export class User {
 
     @Prop({ type: String })
     name?: string
-
-    @Prop({ type: String })
-    image?: string
-
-    @Prop({ type: String })
-    description?: string
-
-
-    @Prop({ type: Contact, required: true })
-    contact: Contact
 
     @Prop({ type: String, enum: Role, default: Role.MEMBER })
     role: Role = Role.MEMBER

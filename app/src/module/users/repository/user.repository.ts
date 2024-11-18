@@ -30,8 +30,7 @@ export class UserRepository {
         return this.model
             .findOneAndUpdate(query, user)
             .populate([
-                { path: 'contact', model: 'Contact' },
-                { path: 'location', model: 'Location' }
+                { path: 'name', model: 'name' }
             ])
             .exec()
     }

@@ -18,7 +18,6 @@ export class GetUserProvider {
 
         return {
             id: '',
-            mail: user.mail,
             name: user.name,
         }
     }

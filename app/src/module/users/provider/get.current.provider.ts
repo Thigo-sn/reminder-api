@@ -9,7 +9,6 @@ export class GetCurrentProvider {
 
         return {
             id: '',
-            mail: user.mail,
             name: user.name,
         }
     }
